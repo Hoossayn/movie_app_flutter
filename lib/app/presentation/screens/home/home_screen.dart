@@ -17,7 +17,7 @@ class _HomeScreenState extends BaseStateWrapper<HomeScreen> {
   }
 
   final List<Widget> _contentWidgets = <Widget>[
-    const ExploreScreen(),
+    const HomeContent(),
     const ExploreScreen(),
     const ExploreScreen(),
   ];
