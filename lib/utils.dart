@@ -1,6 +1,6 @@
 const baseUrl = 'https://api.themoviedb.org/3/';
 
-const apiKey = '7502b8c031c79790fe5c0b4f94fd770d';
+const apiKey = '';
 
 const imageUrl = 'https://image.tmdb.org/t/p/w500';
 
