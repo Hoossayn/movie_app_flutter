@@ -44,6 +44,14 @@ _i1.GetIt init(
       ));
   gh.factory<_i6.BaseRepository>(
       () => _i6.BaseRepositoryImpl(baseClient: gh<_i4.BaseClient>()));
+  gh.factory<_i7.PopularMoviesUseCase>(
+      () => _i7.PopularMoviesUseCase(authApi: gh<_i6.BaseRepository>()));
+  gh.factory<_i7.PopularTvShowsUseCase>(
+      () => _i7.PopularTvShowsUseCase(authApi: gh<_i6.BaseRepository>()));
+  gh.factory<_i7.TopRatedMoviesUseCase>(
+      () => _i7.TopRatedMoviesUseCase(authApi: gh<_i6.BaseRepository>()));
+  gh.factory<_i7.TrendingMoviesUseCase>(
+      () => _i7.TrendingMoviesUseCase(authApi: gh<_i6.BaseRepository>()));
   gh.factory<_i7.UpcomingMoviesUseCase>(
       () => _i7.UpcomingMoviesUseCase(authApi: gh<_i6.BaseRepository>()));
   return getIt;

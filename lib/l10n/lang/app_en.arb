@@ -2,5 +2,6 @@
   "actionLogin": "Log in",
   "home": "Home",
   "explore": "Explore",
-  "favourites": "Favourites"
+  "favourites": "Favourites",
+  "labelUpcomingMovies": "Upcoming Movies"
 }

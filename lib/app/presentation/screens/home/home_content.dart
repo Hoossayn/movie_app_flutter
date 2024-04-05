@@ -9,7 +9,11 @@ class HomeContent extends StatefulWidget {
 }
 
 class _HomeContentState extends BaseStateWrapper<HomeContent> {
-  late final HomeCubit _homeScreenCubit;
+  late final HomeCubit _homeScreenCubit,
+      trendingFuture,
+      popularMoviesFuture,
+      popularTvFuture,
+      topRatedFuture;
 
   @override
   Widget onBuild(BuildContext context, BoxConstraints constraints) {
@@ -28,9 +32,36 @@ class _HomeContentState extends BaseStateWrapper<HomeContent> {
           }
         },
         builder: (context, state) {
-          return Center(
-            child: UpcomingMovies(
-              future: state.upComingMovies,
+          return Scaffold(
+            backgroundColor: productConfig.theme.getBackgroundColor(),
+            body: Center(
+              child: Padding(
+                padding: const EdgeInsets.only(top: 18.0),
+                child: ListView(
+                  children: [
+                    UpcomingMovies(
+                      future: state.upComingMovies,
+                    ),
+                    const SizedBox(
+                      height: 10,
+                    ),
+                    MoviesListView(
+                        future: state.popularTvShows,
+                        headlineText: 'Popular TV Shows'),
+                    MoviesListView(
+                      future: state.trendingMovies,
+                      headlineText: 'Trending',
+                    ),
+                    MoviesListView(
+                      future: state.popularMovies,
+                      headlineText: 'Popular Movies',
+                    ),
+                    MoviesListView(
+                        future: state.topRatedMovies,
+                        headlineText: 'Top Rated Movies'),
+                  ],
+                ),
+              ),
             ),
           );
         }
@@ -47,9 +78,15 @@ class _HomeContentState extends BaseStateWrapper<HomeContent> {
 
   @override
   void onInit() {
+    BotToast.showLoading();
+
     _homeScreenCubit = context.read<HomeCubit>();
 
     _homeScreenCubit.getUpComingMovies();
+    _homeScreenCubit.getPopularMovies();
+    _homeScreenCubit.getPopularTvShows();
+    _homeScreenCubit.getTopRatedMovies();
+    _homeScreenCubit.getTrendingMovies();
   }
 
   @override

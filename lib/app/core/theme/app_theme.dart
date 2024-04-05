@@ -77,7 +77,7 @@ class AppLightScheme extends BaseTheme {
 
   @override
   Color getBackgroundColor() {
-    return const Color(0xFFF5F5F5);
+    return const Color(0xFF191a2c);
   }
 
 

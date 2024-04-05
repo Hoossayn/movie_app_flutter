@@ -2,8 +2,9 @@ part of '../presentation.dart';
 
 
 class UpcomingMovies extends StatelessWidget {
-  const UpcomingMovies({required this.future, Key? key}) : super(key: key);
+   UpcomingMovies({required this.future, Key? key}) : super(key: key);
   final Future<MovieModel> future;
+  final theme = FlavourConfig.instance.config.theme;
   @override
   Widget build(BuildContext context) {
     return FutureBuilder<MovieModel>(
@@ -14,8 +15,10 @@ class UpcomingMovies extends StatelessWidget {
           return Column(
             children: [
               Text(
-                'Upcoming Movies',
-                style: Theme.of(context).textTheme.titleLarge,
+                context.localised.labelUpcomingMovies,
+                style: theme.title1.copyWith(
+                  color: theme.getWhiteTextColor()
+                ),
               ),
               const SizedBox(
                 height: 10,
@@ -27,7 +30,7 @@ class UpcomingMovies extends StatelessWidget {
                   aspectRatio: 1.5,
                 ),
                 itemCount: data.length,
-                itemBuilder: (context, index, realindex) {
+                itemBuilder: (context, index, realIndex) {
                   return Stack(
                     alignment: Alignment.bottomCenter,
                     children: [
@@ -36,7 +39,7 @@ class UpcomingMovies extends StatelessWidget {
                         child: ClipRRect(
                           borderRadius: BorderRadius.circular(20),
                           child: Image.network(
-                            '$imageUrl${data[index].posterPath!}',
+                            '$imageUrl${data[index].posterPath}',
                             width: 174.5,
                             height: 250,
                             fit: BoxFit.cover,
@@ -61,12 +64,16 @@ class UpcomingMovies extends StatelessWidget {
                                 Text(
                                   data[index].title ?? data[index].name!,
                                   overflow: TextOverflow.ellipsis,
-                                  style: Theme.of(context).textTheme.bodyLarge,
+                                  style: theme.titleSmallTextStyle.copyWith(
+                                    color: theme.getWhiteTextColor()
+                                  ),
                                 ),
                                 Text(
                                   getGenres(data[index].genreIds!),
                                   overflow: TextOverflow.ellipsis,
-                                  style: const TextStyle(fontSize: 12),
+                                  style: theme.bodyMediumTextStyle.copyWith(
+                                    color: theme.getWhiteTextColor()
+                                  ),
                                 ),
                               ],
                             ),
@@ -82,13 +89,7 @@ class UpcomingMovies extends StatelessWidget {
         } else if (snapshot.hasError) {
           throw snapshot.error.toString();
         } else {
-          return Padding(
-            padding:
-                EdgeInsets.only(top: MediaQuery.of(context).size.height / 2.5),
-            child: const Center(
-              child: CircularProgressIndicator(),
-            ),
-          );
+          return const SizedBox.shrink();
         }
       },
     );

@@ -75,7 +75,7 @@ class _HomeScreenState extends BaseStateWrapper<HomeScreen> {
       toolbarHeight: AppValues.height0,
       systemOverlayStyle: SystemUiOverlayStyle(
         statusBarBrightness: Brightness.dark,
-        statusBarColor: productConfig.theme.getPrimaryColor(),
+        statusBarColor: productConfig.theme.getBackgroundColor(),
         statusBarIconBrightness: Brightness.light,
       ),
     );

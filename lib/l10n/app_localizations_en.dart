@@ -15,4 +15,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get favourites => 'Favourites';
+
+  @override
+  String get labelUpcomingMovies => 'Upcoming Movies';
 }

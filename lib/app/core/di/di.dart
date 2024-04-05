@@ -24,7 +24,12 @@ List<BlocProvider> initialiseCubits() {
   return [
     BlocProvider<HomeCubit>(
       create: (context) =>
-          HomeCubit(upcomingMoviesUseCase: getIt.get<UpcomingMoviesUseCase>()),
+          HomeCubit(
+              upcomingMoviesUseCase: getIt.get<UpcomingMoviesUseCase>(),
+              popularTvShowsUseCase: getIt.get<PopularTvShowsUseCase>(),
+              popularMoviesUseCase: getIt.get<PopularMoviesUseCase>(),
+              topRatedMoviesUseCase: getIt.get<TopRatedMoviesUseCase>(),
+              trendingMoviesUseCase: getIt.get<TrendingMoviesUseCase>()),
     ),
   ];
 }

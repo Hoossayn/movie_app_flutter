@@ -114,6 +114,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Favourites'**
   String get favourites;
+
+  /// No description provided for @labelUpcomingMovies.
+  ///
+  /// In en, this message translates to:
+  /// **'Upcoming Movies'**
+  String get labelUpcomingMovies;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

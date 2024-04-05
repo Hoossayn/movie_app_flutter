@@ -7,11 +7,19 @@ part 'rest_client.g.dart';
 abstract class RestClient {
   factory RestClient(Dio dio, {String baseUrl}) = _RestClient;
 
-  @POST('/loan-applications')
-  Future<HttpResponse> createApplication(@Body() Map<String, dynamic> param);
-
-  @GET('/movie/upcoming')
+  @GET('movie/upcoming')
   Future<HttpResponse> getUpComingMovies(@Query('api_key') String apiKey);
 
+  @GET('trending/all/day')
+  Future<HttpResponse> getTrendingMovies(@Query('api_key') String apiKey);
+
+  @GET('movie/popular')
+  Future<HttpResponse> getPopularMovies(@Query('api_key') String apiKey);
+
+  @GET('tv/popular')
+  Future<HttpResponse> getPopularTvShows(@Query('api_key') String apiKey);
+
+  @GET('movie/top_rated')
+  Future<HttpResponse> getTopRatedMovies(@Query('api_key') String apiKey);
 
 }
