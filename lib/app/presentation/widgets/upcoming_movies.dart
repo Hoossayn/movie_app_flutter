@@ -10,7 +10,7 @@ class UpcomingMovies extends StatelessWidget {
     return FutureBuilder<MovieModel>(
       future: future,
       builder: (context, snapshot) {
-        if (snapshot.hasData) {
+        if (snapshot.hasData && snapshot.data!.results.isNotEmpty ) {
           final data = snapshot.data?.results;
           return Column(
             children: [
