@@ -1,20 +1,25 @@
 mixin AppValues {
   //height
   static const height0 = 0.0;
+  static const height10 = 10.0;
   static const height15 = 15.0;
   static const height20 = 20.0;
   static const height50 = 50.0;
+  static const height60 = 60.0;
   static const height240 = 240.0;
+  static const height250 = 250.0;
   static const height310 = 310.0;
 
   //width
   static const width170 = 170.0;
+  static const width175 = 175.0;
 
   //padding
   static const padding0 = 0.0;
   static const padding2 = 2.0;
   static const padding3 = 3.0;
   static const padding5 = 5.0;
+  static const padding10 = 10.0;
   static const padding15 = 15.0;
 
   //radius

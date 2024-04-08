@@ -21,7 +21,7 @@ class UpcomingMovies extends StatelessWidget {
                 ),
               ),
               const SizedBox(
-                height: 10,
+                height: AppValues.height10,
               ),
               CarouselSlider.builder(
                 options: CarouselOptions(
@@ -37,25 +37,25 @@ class UpcomingMovies extends StatelessWidget {
                       GestureDetector(
                         onTap: () {},
                         child: ClipRRect(
-                          borderRadius: BorderRadius.circular(20),
+                          borderRadius: BorderRadius.circular(AppValues.radius20),
                           child: Image.network(
                             '$imageUrl${data[index].posterPath}',
-                            width: 174.5,
-                            height: 250,
+                            width: AppValues.width175,
+                            height: AppValues.height250,
                             fit: BoxFit.cover,
                           ),
                         ),
                       ),
                       ClipRRect(
                         borderRadius: const BorderRadius.only(
-                            bottomLeft: Radius.circular(20),
-                            bottomRight: Radius.circular(20)),
+                            bottomLeft: Radius.circular(AppValues.radius20),
+                            bottomRight: Radius.circular(AppValues.radius20)),
                         child: BackdropFilter(
                           filter: ImageFilter.blur(sigmaX: 10, sigmaY: 10),
                           child: Container(
-                            height: 61,
-                            width: 175,
-                            padding: const EdgeInsets.all(10),
+                            height: AppValues.height60,
+                            width: AppValues.width175,
+                            padding: const EdgeInsets.all(AppValues.padding10),
                             color: Colors.black26,
                             child: Column(
                               mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -86,8 +86,6 @@ class UpcomingMovies extends StatelessWidget {
               )
             ],
           );
-        } else if (snapshot.hasError) {
-          throw snapshot.error.toString();
         } else {
           return const SizedBox.shrink();
         }
